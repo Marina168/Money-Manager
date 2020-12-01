@@ -1,7 +1,7 @@
-import {createAppContainer} from 'react-navigation';
+/*import {createAppContainer} from 'react-navigation';
 import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import {createStackNavigator} from 'react-navigation-stack';
-import Icon from '@expo/vector-icons/AntDesign';
+import {Ionicons, FontAwesome} from '@expo/vector-icons';
 import Home from '../screens/Home';
 import Budget from '../screens/Budget';
 import Expenses from '../screens/Expenses';
@@ -15,7 +15,7 @@ const Tabs = createMaterialTopTabNavigator(
       navigationOptions: {
         tabBarLabel: ({tintColor}) => (
           <View style={styles.iconCOntainer}>
-            <Icon name="home" color={tintColor} size={22} />
+            <FontAwesome name="home" color={tintColor} size={30} />
             <Text style={{color: tintColor}}>Home</Text>
           </View>
         ),
@@ -26,7 +26,7 @@ const Tabs = createMaterialTopTabNavigator(
       navigationOptions: {
         tabBarLabel: ({tintColor}) => (
           <View style={styles.iconCOntainer}>
-            <Icon name="person" color={tintColor} size={22} />
+             <FontAwesome name="credit-card" color={tintColor} size={30} />
             <Text style={{color: tintColor}}>Budget</Text>
           </View>
         ),
@@ -37,7 +37,7 @@ const Tabs = createMaterialTopTabNavigator(
       navigationOptions: {
         tabBarLabel: ({tintColor}) => (
           <View style={styles.iconCOntainer}>
-            <Icon name="settings" color={tintColor} size={22} />
+            <FontAwesome name="money" color={tintColor} size={30} />
             <Text style={{color: tintColor}}>Expenses</Text>
           </View>
         ),
@@ -51,8 +51,9 @@ const Tabs = createMaterialTopTabNavigator(
     swipeEnabled: true,
     tabBarOptions: {
       style: {
-        height: 70,
-        backgroundColor: '#40404c',
+        fontFamily: "SFUIDisplay-Bold",
+        height: 80,
+        backgroundColor: '#229954',
         paddingBottom: 3,
         paddingTop: 3,
       },
@@ -60,8 +61,8 @@ const Tabs = createMaterialTopTabNavigator(
         backgroundColor: '#fff',
         elevation: 10,
       },
-      activeTintColor: '#fff',
-      inactiveTintColor: 'gray',
+      activeTintColor: '#06e006',
+      inactiveTintColor: '#ebfdb4',
     },
   },
 );
@@ -88,5 +89,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignContent: 'center',
+    
   },
-});
+});*/
