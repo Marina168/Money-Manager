@@ -1,11 +1,11 @@
-/*import React, {Component} from 'react';
+import React, {Component} from 'react';
 import {AppRegistry,View, Text, StyleSheet, Button, TextInput,TouchableOpacity} from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
 import { DatePickerDialog } from 'react-native-datepicker-dialog'
 import DropDownPicker from 'react-native-dropdown-picker';
  
 import moment from 'moment';
-export default class Expenses extends Component {
+export default class Expenses extends React.Component {
     
   constructor(props){
  
@@ -75,11 +75,10 @@ export default class Expenses extends Component {
                 }}>
                          
         
-                    <Text style={{
-                        color:"white",
-                        fontFamily:"SemiBold",
-                        fontSize:16,
-                    }}>View all expenses</Text>
+                    <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate("AllExpenses")}>
+                    <Text style={{color:"#fff", fontWeight:"500"} }>View all expenses</Text>
+                </TouchableOpacity>
+
                 </View>
       
       
@@ -88,7 +87,8 @@ export default class Expenses extends Component {
                  style={styles.content}
                 >Date</Text>
         
-        {//Place the dialog component at end of your views and assign the references, event handlers to it.}
+        {//Place the dialog component at end of your views and assign the references, event handlers to it.
+        }
         <DatePickerDialog ref="DatePickerDialog" onDatePicked={this.onDatePickedFunction.bind(this)} />
        
         <View style={styles.datePickerBox}>
@@ -301,4 +301,3 @@ const styles = StyleSheet.create({
 });
  
 AppRegistry.registerComponent('Expenses', () => Expenses);
-*/

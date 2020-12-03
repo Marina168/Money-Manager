@@ -5,13 +5,13 @@ import AppNavigator from './src/navigations/Navigator'
 import * as Font from 'expo-font';
 import {AppLoading} from 'expo';
 import { isRequired } from 'react-native/Libraries/DeprecatedPropTypes/DeprecatedColorPropType';
-import MainScreenNavigator from './src/config/router' ;
 
+
+import {Tabs} from './src/config/router' ;
 import Loading from './src/screens/Loading';
 import Home from './src/screens/Home';
 import Login from './src/screens/Login';
 import Register from './src/screens/Register';
-
 import * as firebase from 'firebase';
 import { createStackNavigator } from 'react-navigation-stack';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
@@ -29,10 +29,19 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const AppStack = createStackNavigator(
-  {
-    Home:Home
-  }
-)
+  {Tabs: {
+    screen: Tabs,
+    navigationOptions: {
+      title: 'Money Manager',
+      headerStyle: {
+        backgroundColor: '#2b2b39',
+      },
+      headerTitleStyle: {
+        color: '#fff',
+      },
+    },
+  },
+});
 
 const AuthStack = createStackNavigator
 (

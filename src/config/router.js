@@ -1,4 +1,4 @@
-/*import {createAppContainer} from 'react-navigation';
+import {createAppContainer} from 'react-navigation';
 import {createMaterialTopTabNavigator} from 'react-navigation-tabs';
 import {createStackNavigator} from 'react-navigation-stack';
 import {Ionicons, FontAwesome} from '@expo/vector-icons';
@@ -8,7 +8,7 @@ import Expenses from '../screens/Expenses';
 import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 
-const Tabs = createMaterialTopTabNavigator(
+export const Tabs = createMaterialTopTabNavigator(
   {
     Home: {
       screen: Home,
@@ -67,7 +67,7 @@ const Tabs = createMaterialTopTabNavigator(
   },
 );
 
-const MainScreenNavigator = createStackNavigator({
+/*const MainScreenNavigator = createStackNavigator({
   Tabs: {
     screen: Tabs,
     navigationOptions: {
@@ -80,9 +80,9 @@ const MainScreenNavigator = createStackNavigator({
       },
     },
   },
-});
+});*/
 
-export default createAppContainer(MainScreenNavigator);
+//export default createAppContainer(MainScreenNavigator);
 
 const styles = StyleSheet.create({
   iconCOntainer: {
@@ -91,4 +91,4 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     
   },
-});*/
+});

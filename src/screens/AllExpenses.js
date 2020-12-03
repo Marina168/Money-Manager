@@ -1,74 +1,4 @@
-
-import React, {Component} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
-import {Ionicons, FontAwesome} from '@expo/vector-icons';
-import * as firebase from "firebase";
-
-export default class Home extends React.Component
-{
-    state={
-        email:"",
-        displayName:""
-    };
-
-    componentDidMount()
-    {
-        const {email,displayName}=firebase.auth().currentUser;
-        this.setState({email,displayName});
-    }
-
-    signOutUser =()=>
-    {
-        firebase.auth().signOut();
-    }
-
-    render()
-    {
-        return(
-            <View >
-            <View >
-            <Text style={styles.user}>
-
-             <FontAwesome name="user" color= "#229954" size={28}></FontAwesome>
-            Hi, {this.state.email.substr(0, this.state.email.indexOf('@'))}
-                
-            </Text>
-            </View>
-
-            <View></View>
-            <View>
-
-            <TouchableOpacity  style={{marginTop:32}} onPress={this.signOutUser}>
-                <FontAwesome name="sign-out" color= "#229954" size={28}></FontAwesome>
-            </TouchableOpacity>
-            </View>
-            </View>
-        )
-
-    }
-}
-
-
-const styles =StyleSheet.create(
-    {
-        user:
-        {
-            marginHorizontal:40,
-            marginTop:10,
-            fontSize:19,
-            
-        },
-
-        container:
-        {
-            flex:1,
-            justifyContent:"center",
-            alignContent:"center",
-            
-        }
-    }
-)
-/*import React, { useRef } from "react";
+import React, { useRef } from "react";
 import {
     SafeAreaView,
     StyleSheet,
@@ -86,7 +16,7 @@ import { VictoryPie } from 'victory-native';
 
 import { COLORS, FONTS, SIZES, icons, images } from '../constants';
 
-const Home = () => {
+const allExpenses = () => {
 
     // dummy data
     const confirmStatus = "C"
@@ -375,13 +305,13 @@ const Home = () => {
     function renderCategoryHeaderSection() {
         return (
             <View style={{ flexDirection: 'row', padding: SIZES.padding, justifyContent: 'space-between', alignItems: 'center' }}>
-                {// Title }
+                {/* Title */}
                 <View>
                     <Text style={{ color: COLORS.primary, ...FONTS.h3 }}>CATEGORIES</Text>
                     <Text style={{ color: COLORS.darkgray, ...FONTS.body4 }}>{categories.length} Total</Text>
                 </View>
 
-                {// Button }
+                {/* Button*/ }
                 <View style={{ flexDirection: 'row' }}>
                     <TouchableOpacity
                         style={{
@@ -507,7 +437,7 @@ const Home = () => {
     function renderIncomingExpensesTitle() {
         return (
             <View style={{ height: 80, backgroundColor: COLORS.lightGray2, padding: SIZES.padding }}>
-                {// Title }
+                {/*Title */}
                 <Text style={{ ...FONTS.h3, color: COLORS.primary }}>INCOMING EXPENSES</Text>
                 <Text style={{ ...FONTS.body4, color: COLORS.darkgray }}>12 Total</Text>
             </View>
@@ -554,15 +484,15 @@ const Home = () => {
                     <Text style={{ ...FONTS.h3, color: selectedCategory.color, }}>{selectedCategory.name}</Text>
                 </View>
 
-                {// Expense Description }
+                {/* Expense Description*/ }
                 <View style={{ paddingHorizontal: SIZES.padding }}>
-                    {// Title and description }
+                    {/*Title and description */}
                     <Text style={{ ...FONTS.h2, }}>{item.title}</Text>
                     <Text style={{ ...FONTS.body3, flexWrap: 'wrap', color: COLORS.darkgray }}>
                         {item.description}
                     </Text>
 
-                    {// Location }
+                    {/*Location */}
                     <Text style={{ marginTop: SIZES.padding, ...FONTS.h4, }}>Location</Text>
                     <View style={{ flexDirection: 'row' }}>
                         <Image
@@ -578,7 +508,7 @@ const Home = () => {
                     </View>
                 </View>
 
-                {// Price }
+                {/* Price */}
                 <View
                     style={{
                         height: 50,
@@ -732,7 +662,7 @@ const Home = () => {
                     setSelectCategoryByName(categoryName)
                 }}
             >
-                {// Name/Category }
+                {/* Name/Category */}
                 <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                     <View
                         style={{
@@ -746,7 +676,7 @@ const Home = () => {
                     <Text style={{ marginLeft: SIZES.base, color: (selectedCategory && selectedCategory.name == item.name) ? COLORS.white : COLORS.primary, ...FONTS.h3 }}>{item.name}</Text>
                 </View>
 
-                {// Expenses }
+                {/* Expenses */}
                 <View style={{ justifyContent: 'center' }}>
                     <Text style={{ color: (selectedCategory && selectedCategory.name == item.name) ? COLORS.white : COLORS.primary, ...FONTS.h3 }}>{item.y} USD - {item.label}</Text>
                 </View>
@@ -767,13 +697,13 @@ const Home = () => {
 
     return (
         <View style={{ flex: 1, backgroundColor: COLORS.lightGray2 }}>
-            {// Nav bar section }
+            {/* Nav bar section*/ }
             {renderNavBar()}
 
-            {// Header section }
+            {/* Header section */}
             {renderHeader()}
 
-            {/ Category Header Section }
+            {/*Category Header Section */}
             {renderCategoryHeaderSection()}
 
             <ScrollView contentContainerStyle={{ paddingBottom: 60 }}>
@@ -809,4 +739,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Home;*/
+export default allExpenses;

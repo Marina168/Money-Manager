@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet,Text,View,Image, TextInput, Button,TouchableOpacity} from 'react-native';
+import {StyleSheet,Text,View,Image, TextInput, Button,TouchableOpacity, Alert} from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
 import * as firebase from 'firebase';
 
@@ -8,7 +8,7 @@ export default class Login extends React.Component{
     state={
         email:"",
         password:"",
-        errorMessage:"null"
+        errorMessage:"null",
     }
     handleLogin =()=>
     {
@@ -22,27 +22,8 @@ export default class Login extends React.Component{
         return(
             <View style={{backgroundColor:"#FFF",height:"100%"}}>
                 <Image source ={require('../images/logo.jpg')}
-                    style={{width:"100%",height:"20%"}}
+                    style={{width:"100%",height:"25%"}}
                 />
-                <Text
-                 style={{
-                     fontSize:30,
-                     fontFamily:"SemiBold",
-                     alignSelf:"center",
-                 }}
-                >Save your money</Text>
-
-                <Text
-                style={{
-                    fontFamily:"SemiBold",
-                    marginHorizontal:60,
-                    textAlign:'left',
-                    marginTop:5,
-                    opacity:0.4
-                }}
-                >
-                    Pay attention at your money and you will learn to be more resposible.
-                </Text>
 
                <View style={styles.errorMessage}>{this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
                </View>
@@ -70,10 +51,12 @@ export default class Login extends React.Component{
                     <Text style={{color:"#fff", fontWeight:"500"}}>Sign in</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={{alignSelf:"center",marginTop:32}} onPress={() => this.props.navigation.navigate("Register")}>
+                <TouchableOpacity style={{alignSelf:"center",marginTop:32}} onPress={() => this.props.navigation.navigate("Register") }>
                     <Text style={{color:"#000", fontSize:13}}>
                         New To MoneyManagerApp?<Text style={{fontWeight:"500", color:"#229954"}}>Sign up</Text>
+                       
                     </Text>
+            
                 </TouchableOpacity>
 
                 

@@ -8,7 +8,7 @@ export default class Register extends React.Component{
         name:"",
         email:"",
         password:"",
-        errorMessage:"null"
+        errorMessage:"*"
     }
     handleSignUp=()=>
     {
@@ -20,10 +20,11 @@ export default class Register extends React.Component{
                         return userCredentials.user.updateProfile(
                             {
                                 displayName:this.state.name
+
                             }
                         )
                     })
-                    .catch(error => this.setState({ errorMessage: error.message}))
+                .catch(error => this.setState({ errorMessage: error.message}))
     }
   
 
@@ -38,7 +39,6 @@ export default class Register extends React.Component{
                  <Text
                  style={{
                      fontSize:20,
-                     fontFamily:"SemiBold",
                      alignSelf:"center",
                      marginTop:5,
                      paddingVertical:30
@@ -73,8 +73,16 @@ export default class Register extends React.Component{
                                                                         </TextInput>
                    </View>
                </View>
-               <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
+               <TouchableOpacity style={styles.button} onPress={this.handleSignUp } onPress={() => this.props.navigation.navigate("Login") }>
                     <Text style={{color:"#fff", fontWeight:"500"}}>Sign up</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={{alignSelf:"center",marginTop:20}} onPress={() => this.props.navigation.navigate("Login") }>
+                    
+                    <Text style={{fontWeight:"500", color:"#229954"}}>Back to Login</Text>
+                       
+                  
+            
                 </TouchableOpacity>
               
               

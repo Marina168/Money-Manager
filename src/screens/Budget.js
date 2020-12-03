@@ -1,4 +1,4 @@
-/*import React, {Component} from 'react';
+import React, {Component} from 'react';
 import {AppRegistry,View, Text, StyleSheet, Button, TextInput,TouchableOpacity} from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
 import { DatePickerDialog } from 'react-native-datepicker-dialog'
@@ -6,7 +6,7 @@ import DropDownPicker from 'react-native-dropdown-picker';
 
 
 import moment from 'moment';
-export default class Budget extends Component {
+export default class Budget extends React.Component {
 
   constructor(props){
  
@@ -86,7 +86,8 @@ export default class Budget extends Component {
                  style={styles.content}
                 >Date</Text>
         
-        {//Place the dialog component at end of your views and assign the references, event handlers to it.}
+        {//Place the dialog component at end of your views and assign the references, event handlers to it.
+        }
         <DatePickerDialog ref="DatePickerDialog" onDatePicked={this.onDatePickedFunction.bind(this)} />
        
         <View style={styles.datePickerBox}>
@@ -108,7 +109,7 @@ export default class Budget extends Component {
                      margin: 10,marginTop:20,}}
                 >
 
-                  Insert your incomes:
+                  Insert {"\n"} your incomes:
                 </Text>   
 
                 
@@ -241,4 +242,4 @@ const styles = StyleSheet.create({
   },
 });
  
-AppRegistry.registerComponent('Budget', () => Budget);*/
+AppRegistry.registerComponent('Budget', () => Budget);
