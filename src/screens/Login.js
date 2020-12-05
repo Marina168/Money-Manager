@@ -1,14 +1,15 @@
 import React from 'react';
-import {StyleSheet,Text,View,Image, TextInput, Button,TouchableOpacity, Alert} from 'react-native';
+import {StyleSheet,Text,View,Image, TextInput, Button,TouchableOpacity,KeyboardAvoidingView} from 'react-native';
 import Icon from '@expo/vector-icons/AntDesign';
 import * as firebase from 'firebase';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 export default class Login extends React.Component{
     state={
         email:"",
         password:"",
-        errorMessage:"null",
+        errorMessage:"*",
     }
     handleLogin =()=>
     {
@@ -18,13 +19,17 @@ export default class Login extends React.Component{
     
 
     render(){
+
+        
         const {navigate} = this.props.navigation
         return(
+            <KeyboardAvoidingView>
+           
             <View style={{backgroundColor:"#FFF",height:"100%"}}>
                 <Image source ={require('../images/logo.jpg')}
                     style={{width:"100%",height:"25%"}}
                 />
-
+                 <ScrollView>
                <View style={styles.errorMessage}>{this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
                </View>
                <View style={styles.form}>
@@ -58,12 +63,10 @@ export default class Login extends React.Component{
                     </Text>
             
                 </TouchableOpacity>
-
-                
-                         
-        
-                   
+                </ScrollView>    
             </View>
+            
+            </KeyboardAvoidingView>
         )
     }
 }

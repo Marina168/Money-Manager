@@ -14,10 +14,12 @@ import {
 } from 'react-native';
 import { VictoryPie } from 'victory-native';
 
+
 import { COLORS, FONTS, SIZES, icons, images } from '../constants';
 
 const allExpenses = () => {
-
+   
+    
     // dummy data
     const confirmStatus = "C"
     const pendingStatus = "P"
@@ -226,48 +228,8 @@ const allExpenses = () => {
     const [selectedCategory, setSelectedCategory] = React.useState(null)
     const [showMoreToggle, setShowMoreToggle] = React.useState(false)
 
-    function renderNavBar() {
-        return (
-            <View
-                style={{
-                    flexDirection: 'row',
-                    height: 80,
-                    justifyContent: 'space-between',
-                    alignItems: 'flex-end',
-                    paddingHorizontal: SIZES.padding,
-                    backgroundColor: COLORS.white,
-                }}
-            >
-                <TouchableOpacity
-                    style={{ justifyContent: 'center', width: 50, }}
-                    onPress={() => console.log('Go Back')}
-                >
-                    <Image
-                        source={icons.back_arrow}
-                        style={{
-                            width: 30,
-                            height: 30,
-                            tintColor: COLORS.primary
-                        }}
-                    />
-                </TouchableOpacity>
 
-                <TouchableOpacity
-                    style={{ justifyContent: 'center', alignItems: 'flex-end', width: 50 }}
-                    onPress={() => console.log('More')}
-                >
-                    <Image
-                        source={icons.more}
-                        style={{
-                            width: 30,
-                            height: 30,
-                            tintColor: COLORS.primary
-                        }}
-                    />
-                </TouchableOpacity>
-            </View>
-        )
-    }
+   
 
     function renderHeader() {
         return (
@@ -305,13 +267,13 @@ const allExpenses = () => {
     function renderCategoryHeaderSection() {
         return (
             <View style={{ flexDirection: 'row', padding: SIZES.padding, justifyContent: 'space-between', alignItems: 'center' }}>
-                {/* Title */}
+                {/*Title */}
                 <View>
                     <Text style={{ color: COLORS.primary, ...FONTS.h3 }}>CATEGORIES</Text>
                     <Text style={{ color: COLORS.darkgray, ...FONTS.body4 }}>{categories.length} Total</Text>
                 </View>
 
-                {/* Button*/ }
+                {/*Button*/ }
                 <View style={{ flexDirection: 'row' }}>
                     <TouchableOpacity
                         style={{
@@ -436,8 +398,8 @@ const allExpenses = () => {
 
     function renderIncomingExpensesTitle() {
         return (
-            <View style={{ height: 80, backgroundColor: COLORS.lightGray2, padding: SIZES.padding }}>
-                {/*Title */}
+            <View style={{ height: 20, backgroundColor: COLORS.lightGray2, padding: SIZES.padding }}>
+                {/* Title */}
                 <Text style={{ ...FONTS.h3, color: COLORS.primary }}>INCOMING EXPENSES</Text>
                 <Text style={{ ...FONTS.body4, color: COLORS.darkgray }}>12 Total</Text>
             </View>
@@ -458,7 +420,7 @@ const allExpenses = () => {
                 backgroundColor: COLORS.white,
                 ...styles.shadow
             }}>
-                {// Title }
+                {/* Title*/ }
                 <View style={{ flexDirection: 'row', padding: SIZES.padding, alignItems: 'center' }}>
                     <View
                         style={{
@@ -486,13 +448,13 @@ const allExpenses = () => {
 
                 {/* Expense Description*/ }
                 <View style={{ paddingHorizontal: SIZES.padding }}>
-                    {/*Title and description */}
+                    {/*Title and description*/ }
                     <Text style={{ ...FONTS.h2, }}>{item.title}</Text>
                     <Text style={{ ...FONTS.body3, flexWrap: 'wrap', color: COLORS.darkgray }}>
                         {item.description}
                     </Text>
 
-                    {/*Location */}
+                    {/* Location*/ }
                     <Text style={{ marginTop: SIZES.padding, ...FONTS.h4, }}>Location</Text>
                     <View style={{ flexDirection: 'row' }}>
                         <Image
@@ -508,7 +470,7 @@ const allExpenses = () => {
                     </View>
                 </View>
 
-                {/* Price */}
+                {/*Price*/ }
                 <View
                     style={{
                         height: 50,
@@ -697,8 +659,7 @@ const allExpenses = () => {
 
     return (
         <View style={{ flex: 1, backgroundColor: COLORS.lightGray2 }}>
-            {/* Nav bar section*/ }
-            {renderNavBar()}
+            {/*Nav bar section */}
 
             {/* Header section */}
             {renderHeader()}

@@ -1,14 +1,16 @@
 import React from 'react';
-import {Text,View,Image, TextInput, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text,View,Image, TextInput, StyleSheet, TouchableOpacity,ScrollView,KeyboardAvoidingView} from 'react-native';
+//import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 
 import Icon from '@expo/vector-icons/AntDesign';
 import * as firebase from 'firebase';
+import { SceneView } from 'react-navigation';
 export default class Register extends React.Component{
     state={
         name:"",
         email:"",
         password:"",
-        errorMessage:"*"
+        errorMessage:"null"
     }
     handleSignUp=()=>
     {
@@ -29,9 +31,10 @@ export default class Register extends React.Component{
   
 
     render(){
-        const {navigate} = this.props.navigation
+      
         
         return(
+            <KeyboardAvoidingView >
             <View style={{backgroundColor:"#FFF",height:"100%"}}>
                 <Image source ={require('../images/logo.jpg')}
                     style={{width:"100%",height:"20%"}}
@@ -46,9 +49,8 @@ export default class Register extends React.Component{
                  }}
                 >Create your account</Text>
 
-                <View style={styles.errorMessage}>{this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
-               </View>
-
+                <View style={styles.errorMessage}>{this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}</View>
+               <ScrollView>
                <View style={styles.form}>
                    <View >
                        <Text style={styles.inputTitle}>Full Name</Text>
@@ -68,12 +70,16 @@ export default class Register extends React.Component{
                        <Text style={styles.inputTitle}>Password</Text>
                        <TextInput style={styles.input} secureTextEntry autoCapitalize="none"
                                                                         onChangeText={password =>this.setState({password})}
-                                                                        value={this.state.password}>
+                                                                        value={this.state.password}
+>
+                                                                        
 
                                                                         </TextInput>
                    </View>
                </View>
-               <TouchableOpacity style={styles.button} onPress={this.handleSignUp } onPress={() => this.props.navigation.navigate("Login") }>
+          
+           
+               <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
                     <Text style={{color:"#fff", fontWeight:"500"}}>Sign up</Text>
                 </TouchableOpacity>
 
@@ -85,13 +91,19 @@ export default class Register extends React.Component{
             
                 </TouchableOpacity>
               
-              
+            </ScrollView>
             </View>
+           
+            </KeyboardAvoidingView>
+           
+           
+            
         )
     }
 }
 
 const styles = StyleSheet.create({
+
     container:{
         flex:1
     },
